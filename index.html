@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Spaced Website</title>
+  <meta name="description" content="Spaced Website for booking your next spaceflight">
+
+  <script src="counter.js" defer></script>
+  <script src="image-carousel.js" defer></script>
+  <script src="destinations-switch.js" defer></script>
+  <script src="dropdown.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="smooth-scrol.js" defer></script>
+  <script src="https://kit.fontawesome.com/c18603af5d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+  <!-- Navigation -->
+      <div class="wrapper">
+        <div class="nav-container flex center">
+            <div class="nav-header">
+                <img src="images/spaced-logo.png" alt="">
+                <div class="orange-bars-container flex">
+                    <div class="longest"></div>
+                    <div class="middle"></div>
+                    <div class="shortest"></div>
+                </div>
+            </div>
+    
+            <div class="nav-right flex center gap">
+              <nav>
+                <ul class="primary-nav flex gap" id="primary-nav" data-visible="false">
+                    <li><a href="#destinations">DESTINATIONS</a></li>
+                    <li><a href="#ships">SHIPS</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#faqs">FAQ'S</a></li>
+                </ul>
+            </nav>
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Mobile Navigation Toggle">
+                    <span class="hidden">MENU</span>
+                </button>
+                <button class="blue-button">BOOK</button>
+            </div>
+        </div>
+      </div>
+    
+      <!-- Main -->
+      <div class="wrapper">
+        <div class="image-container flex">
+            <img src="images/tospaceandback.webp" alt="" class="to-space">
+            <img src="images/astronaut.webp" alt="" class="astronaut">
+            <img src="images/moon.webp" alt="" class="moon">
+        </div>
+    
+        <!-- Trip Plan Tool -->
+        <div class="container">
+            <p>Plan your voyage below</p>
+            <div class="trip-plan-container">
+
+                <div class="trip-sector --1">
+                  Destination
+                  <div class="dropdown">
+                    <div class="select flex center gap">
+                      <span class="selected-item">Moon</span>
+                      <i class="fa-solid fa-angle-down" style="color: #f1470e;"></i>
+                    </div>
+                    <ul class="menu">
+                      <li class="active-item">Moon</li>
+                      <li>Jupiter</li>
+                      <li>Mars</li>
+                      <li>Saturn</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="trip-sector --2">
+                  Departure
+
+                  <div class="dropdown">
+                    <div class="select flex center gap">
+                      <span class="selected-item">JFK</span>
+                      <i class="fa-solid fa-angle-down" style="color: #f1470e;"></i>
+                    </div>
+                    <ul class="menu">
+                      <li class="active-item">JFK</li>
+                      <li>SFO</li>
+                      <li>MCO</li>
+                    </ul>
+                  </div>
+
+                </div>
+
+                <div class="trip-sector --3">
+                  Voyage Dates
+                  <div class="dropdown">
+                    <div class="select flex center gap">
+                      <span class="selected-item">March 2024</span>
+                      <i class="fa-solid fa-angle-down" style="color: #f1470e;"></i>
+                    </div>
+                    <ul class="menu">
+                      <li class="active-item">March 2024</li>
+                      <li>April 2024</li>
+                      <li>May 2024</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="trip-sector --4">
+                  Passengers
+                  <div class="counter flex gap center">
+                    <button id="decrement-btn" aria-label="Decrement Button"><img src="images/icon-minus.svg" alt=""></button>
+                    <div id="count-value">0</div>
+                    <button id="increment-btn"><img src="images/icon-plus.svg" alt="Plus"></button>
+                  </div>
+                </div>
+
+                <button class="get-started-btn">GET STARTED ></button>
+            </div>
+          </div>
+      </div>
+
+ <!-- Destinations -->
+      <div class="wrapper --no-padding" id="destinations">
+        <div class="destinations-container">
+
+          <div class="destinations-header">
+            <div class="orange-bars-container flex">
+              <div class="shortest"></div>
+              <div class="middle"></div>
+              <div class="longest"></div>
+              <h2>DESTINATIONS</h2>
+            </div>
+          </div>
+
+          <div class="image-row-container">
+            <button onclick="showContent('content1', 'btn1', 'img-content1', 'activites1')" aria-label="Moon Button"><img class="img-btn selected" src="images/moon-gif.gif" alt="" id="btn1"></button>
+            <button onclick="showContent('content2', 'btn2','img-content2', 'activites2')" aria-label="Jupiter Button"><img class="img-btn" src="images/jupiter-gif.gif" alt="" id="btn2"></button>
+            <button onclick="showContent('content3', 'btn3', 'img-content3', 'activites3')" aria-label="Mars Button"><img class="img-btn" src="images/mars-gif.gif" alt="" id="btn3"></button>
+            <button onclick="showContent('content4', 'btn4', 'img-content4', 'activites4')" aria-label="Saturn Button"><img class="img-btn" src="images/saturn-gif.gif" alt="" id="btn4"></button>
+          </div>
+
+
+          <div class="content active" id="content1" >
+
+            <!-- Changing Destination Content -->
+            <div class="content-header">
+              <h1>MOON</h1>
+              <div class="subheader">
+                <h2>THE MOON!</h2>
+                <h3>MORE THAN JUST A DESTINATION!</h3>
+              </div>
+              Our newest destination is the shortest trip SPACED offers. You will have great views of earth, perfect for taking pictures. Not only will you have a luxury experience getting to the moon, you will also be over the moon for the accommodations we have for you on earth’s natural satellite. Be sure to look into our events held on the moon, you wont want to miss the opportunity to see the next eclipse from the moons surface.
+            </div>
+
+          </div>
+
+          <div class="content" id="content2">
+            <div class="content-header">
+              <h1>JUPITER</h1>
+              <div class="subheader">
+                <h2>BEHOLD THE STORM!</h2>
+                <h3>MORE THAN JUST A GIANT HURRICAN OF DESTRUCTION</h3>
+              </div>
+              Our newest destination is the shortest trip SPACED offers. You will have great views of earth, perfect for taking pictures. Not only will you have a luxury experience getting to the moon, you will also be over the moon for the accommodations we have for you on earth’s natural satellite. Be sure to look into our events held on the moon, you wont want to miss the opportunity to see the next eclipse from the moons surface.
+            </div>
+          </div>
+
+          <div class="content" id="content3">
+            <div class="content-header">
+              <h1>MARS</h1>
+              <div class="subheader">
+                <h2>THE RED PLANET</h2>
+                <h3>WE'RE NOT ALONE, MEET OUR INTERPLANETARY NEIGHBORS</h3>
+              </div>
+              Our newest destination is the shortest trip SPACED offers. You will have great views of earth, perfect for taking pictures. Not only will you have a luxury experience getting to the moon, you will also be over the moon for the accommodations we have for you on earth’s natural satellite. Be sure to look into our events held on the moon, you wont want to miss the opportunity to see the next eclipse from the moons surface.
+            </div>
+          </div>
+
+          <div class="content" id="content4">
+            <div class="content-header">
+              <h1>SATURN</h1>
+              <div class="subheader">
+                <h2>AHOY SATURN</h2>
+                <h3>HAS A NICE RING TO IT</h3>
+              </div>
+              Our newest destination is the shortest trip SPACED offers. You will have great views of earth, perfect for taking pictures. Not only will you have a luxury experience getting to the moon, you will also be over the moon for the accommodations we have for you on earth’s natural satellite. Be sure to look into our events held on the moon, you wont want to miss the opportunity to see the next eclipse from the moons surface.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Changing Images -->
+        <div class="img-content active" id="img-content1">
+          <div class="tri-image-grid">
+            <img src="images/dinner.webp" alt="" id="dinner">
+            <img src="images/livingroom.webp" alt="" id="livingroom">
+            <img src="images/moonbase.jpg" alt="" id="moonbase">
+          </div>
+        </div>
+
+
+        <div class="img-content" id="img-content2">
+          <div class="tri-image-grid" id="img-content2">
+            <img src="images/red-dot.jpg" alt="" id="dinner">
+            <img src="images/jupiter-bar.webp" alt="" id="livingroom">
+            <img src="images/moonbase.jpg" alt="" id="moonbase">
+          </div>
+        </div>
+        
+        <div class="img-content" id="img-content3">
+          <div class="tri-image-grid" id="img-content3">
+            <img src="images/dinner.webp" alt="" id="dinner">
+            <img src="images/livingroom.webp" alt="" id="livingroom">
+            <img src="images/mars-base.jpg" alt="" id="moonbase">
+          </div>
+        </div>
+        
+        <div class="img-content" id="img-content4">
+          <div class="tri-image-grid" id="img-content4">
+            <img src="images/saturn-lounge.webp" alt="" id="dinner">
+            <img src="images/jupiter-bar.jpg" alt="" id="livingroom">
+            <img src="images/moonbase.jpg" alt="" id="moonbase">
+          </div>
+        </div>
+        
+        <!-- Changing Sctivites Section -->
+
+      <div class="activities-content active" id="activites1">
+        <div class="activities-container flex padding-block">
+          <div class="activities-header">
+            <div class="orange-bars-container">
+              <div class="shortest"></div>
+              <div class="longest"></div>
+            </div>
+            <h2 class="white">ACTIVITIES ON THE MOON</h2>
+          </div>
+          <div class="activities-grid">
+            <div class="card flex">
+              <img src="images/flag-plant-icon.svg" alt="">
+              <div>
+                <label>Moon Landing Tour</label>
+              <p>Was it real? We are 90% sure it happened.</p>
+              </div>
+            </div>
+            <div class="card flex">
+              <img src="images/toast-icon.svg" alt="">
+              <div>
+                <label>Space Bar & Grille</label>
+              <p>Dine under the stars with views out of this world.</p>
+              </div>
+            </div>
+            <div class="card flex">
+              <img src="images/blaster-icon.svg" alt="">
+              <div>
+                <label>Galactic Arcades</label>
+              <p>Fun for the whole family in our zero gravity arcade.</p>
+              </div>
+            </div>
+            <div class="card flex">
+              <img src="images/rover-icon.svg" alt="">
+              <div>
+                <label>Rover Expeditions</label>
+              <p>Explore the moon in style in our lunar rovers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="buttons-container flex padding-block">
+            <button class="orange-button">BOOK NOW</button>
+            <button class="blue-button blue-button-perm">ALL DESTINATIONS</button>
+          </div>
+        </div>
+      </div>
+
+        <div class="activities-content" id="activites2">
+          <div class="activities-container flex padding-block">
+            <div class="activities-header">
+              <div class="orange-bars-container">
+                <div class="shortest"></div>
+                <div class="longest"></div>
+              </div>
+              <h2 class="white">ACTIVITIES ON JUPITER</h2>
+            </div>
+            <div class="activities-grid">
+              <div class="card flex">
+                <img src="images/flag-plant-icon.svg" alt="">
+                <div>
+                  <label>Dips in the storm</label>
+                <p>Was it real? We are 90% sure it happened.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/toast-icon.svg" alt="">
+                <div>
+                  <label>Space Bar & Grille</label>
+                <p>Dine under the stars with views out of this world.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/blaster-icon.svg" alt="">
+                <div>
+                  <label>Galactic Arcades</label>
+                <p>Fun for the whole family in our zero gravity arcade.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/rover-icon.svg" alt="">
+                <div>
+                  <label>Rover Expeditions</label>
+                <p>Explore Jupiter in style in our storm exploration rovers.</p>
+                </div>
+              </div>
+            </div>
+            <div class="buttons-container flex padding-block">
+              <button class="orange-button">BOOK NOW</button>
+              <button class="blue-button blue-button-perm">ALL DESTINATIONS</button>
+            </div>
+          </div>
+        </div>         
+
+        <div class="activities-content" id="activites3">
+          <div class="activities-container flex padding-block">
+            <div class="activities-header">
+              <div class="orange-bars-container">
+                <div class="shortest"></div>
+                <div class="longest"></div>
+              </div>
+              <h2 class="white">ACTIVITIES ON MARS</h2>
+            </div>
+            <div class="activities-grid">
+              <div class="card flex">
+                <img src="images/flag-plant-icon.svg" alt="">
+                <div>
+                  <label>Visit your country flag on Mars</label>
+                <p>Our home away from home, let's makes some memories.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/toast-icon.svg" alt="">
+                <div>
+                  <label>Space Bar & Grille</label>
+                <p>Dine under the stars with views out of this world.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/blaster-icon.svg" alt="">
+                <div>
+                  <label>Galactic Arcades</label>
+                <p>Fun for the whole family in our zero gravity arcade.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/rover-icon.svg" alt="">
+                <div>
+                  <label>Rover Expeditions</label>
+                <p>Martian underground safaris leave every 30 minutes. Bring your camera!</p>
+                </div>
+              </div>
+            </div>
+            <div class="buttons-container flex padding-block">
+              <button class="orange-button">BOOK NOW</button>
+              <button class="blue-button blue-button-perm">ALL DESTINATIONS</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="activities-content" id="activites4">
+          <div class="activities-container flex padding-block">
+            <div class="activities-header">
+              <div class="orange-bars-container">
+                <div class="shortest"></div>
+                <div class="longest"></div>
+              </div>
+              <h2 class="white">ACTIVITIES ON SATURN</h2>
+            </div>
+            <div class="activities-grid">
+              <div class="card flex">
+                <img src="images/flag-plant-icon.svg" alt="">
+                <div>
+                  <label>Interpretive dances on the ring</label>
+                <p>Flags will be provided, come join us as we play ring around the planet.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/toast-icon.svg" alt="">
+                <div>
+                  <label>Space Bar & Grille</label>
+                <p>Dine under the stars with views out of this world.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/blaster-icon.svg" alt="">
+                <div>
+                  <label>Galactic Arcades</label>
+                <p>Fun for the whole family in our zero gravity arcade.</p>
+                </div>
+              </div>
+              <div class="card flex">
+                <img src="images/rover-icon.svg" alt="">
+                <div>
+                  <label>Hyper speed day trips</label>
+                <p>Days on Saturn only last about 10 hours, enjoy this warp speed tour.</p>
+                </div>
+              </div>
+            </div>
+            <div class="buttons-container flex padding-block">
+              <button class="orange-button">BOOK NOW</button>
+              <button class="blue-button blue-button-perm">ALL DESTINATIONS</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Ships -->
+      <div class="wrapper --no-padding" id="ships">
+        <div class="ships-container">
+
+          <div class="ships-header">
+            <h2>THE FLIGHT</h2>
+            <h3>WHAT TO EXPECT ONBBOARD</h3>
+            <h1>SHIPS</h1>
+          </div>
+
+          <div class="ships-content">
+            <p>The flight to our destinations can get long, but you wont be sitting in a small seat like the airlines you are used to. With SPACED you will enjoy a smooth launch and a quick trip to our interstellar luxury starship. For your stay onboard you can enjoy all of the amenities included butnot limited to: our galactic bar, space walking, zero gravity rec center, and our very own movie theatre. Time will fly when you are traveling to your destination. Don’t know what all to do on your trip? Let us help you planet.</p>
+          </div>
+
+          <div class="ship-image-container flex">
+            <img src="images/rocket.png" alt="">
+            <div class="sub-container flex">
+              <p>4 HOURS</p>
+              <hr class="dashed-line">
+            </div>
+            <img src="images/spaced-station.png" alt="">
+            <div class="sub-container flex">
+              <p>48 HOURS</p>
+              <hr class="dashed-line">
+            </div>
+            <div class="dashed-circle">
+              <img src="images/moon2.webp" alt="">
+            </div>
+          </div>
+            
+        </div>
+
+        <div class="tri-image-grid">
+          <img src="images/bedroom.jpg" alt="" id="bedroom">
+          <img src="images/baby-astronaut.jpg" alt="" id="baby-astronaut">
+          <img src="images/bar2-alt.webp" alt="" id="bar-2-alt">
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="wrapper" id="faqs">
+        <div class="testimonial-container flex padding-block margin-inline">
+          <div class="activities-header">
+            <div class="orange-bars-container">
+              <div class="shortest"></div>
+              <div class="longest"></div>
+            </div>
+            <h2 class="white">WHY GO WITH SPACED</h2>
+        </div>
+
+        <div class="even-columns">
+
+          <!-- Image Carousel -->
+          <div class="image-carousel-container">
+            <img src="images/dan.webp" alt="" class="carousel-image">
+            <img src="images/mike.jpg" alt="" class="carousel-image">
+            <img src="images/waldo.jpg" alt="" class="carousel-image">
+            <img src="images/bubbles.jpg" alt="" class="carousel-image">
+
+            <div class="carousel-title-card flex center gap">
+                <label id="name">Our Crew</label>
+                <!-- <p id="position">Owner / CD</p> -->
+            </div>
+          </div>
+
+          <div class="testimonial-cards-container flex gap">
+            <div class="card --testimonial flex">
+              <img src="images/elon.png" alt="">
+              <div>
+                <div>★★★★★</div>
+                <label>Stellar Expreience!</label>
+                <p>"I had an X-tremely good time on mars."</p>
+                <p>-Elon Musk</p>
+              </div>
+            </div>
+            <div class="card --testimonial flex">
+              <img src="images/rey.png" alt="">
+              <div>
+                <div>★★★★★</div>
+                <label>Went Solo, Still Fun
+                </label>
+                <p>"“I went straight to the dark side of the moon.”"</p>
+                <p>-Rey Skywalker</p>
+              </div>
+            </div>
+            <div class="card --testimonial flex">
+              <img src="images/tyson.png" alt="">
+              <div>
+                <div>★★★★★</div>
+                <label>My Room Had alot of Space</label>
+                <p>“Space was cool before it mattered.”</p>
+                <p>-Neil deGrasse Tyson</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Image Showcase Grid -->
+      <div class="wrapper">
+        <div class="orange-bars-container padding-block">
+          <div class="shortest"></div>
+          <div class="longest"></div>
+        </div>
+        <div class="grid-container">
+          <img src="images/gaze.jpg" alt="" id="gaze">
+          <img src="images/hike.jpg" alt="" id="hike">
+          <img src="images/bar.jpg" alt="" id="bar">
+          <img src="images/child.jpg" alt="" id="child">
+          <img src="images/lounge.jpg" alt="" id="lounge">
+          <img src="images/bar2.jpg" alt="" id="bar2">
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="wrapper">
+        <div class="footer-container flex">
+          <img src="images/spaced-logo.png" alt="">
+          <ul class="footer-nav flex">
+            <li>DESTINATIONS</li>
+            <li>SHIPS</li>
+            <li>ABOUT</li>
+            <li>FAQ'S</li>
+          </ul>
+        </div>
+      </div>
+</body>
+</html>
